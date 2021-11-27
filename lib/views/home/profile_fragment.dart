@@ -89,7 +89,6 @@ class ProfileFragment extends StatelessWidget {
                   itemProfile('Nama', 'Zavier Ferodova Al Fitroh'),
                   itemProfile('Alamat', 'Jebres Tengah, Surakarta'),
                   itemProfile('Jenis Kelamin', 'Laki-Laki'),
-                  itemProfile('Email', 'zavierferodova@outlook.com'),
                 ],
               )
             )
