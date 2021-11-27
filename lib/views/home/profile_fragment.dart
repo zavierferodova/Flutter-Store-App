@@ -66,8 +66,8 @@ class ProfileFragment extends StatelessWidget {
               padding: EdgeInsets.only(
                 left: 20.0,
                 right: 20.0,
-                top: 25.0,
-                bottom: 25.0
+                top: 40.0,
+                bottom: 40.0
               ),
               decoration: BoxDecoration(
                 color: Color(0xff121212),
