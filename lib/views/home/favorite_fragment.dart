@@ -11,7 +11,7 @@ class FavoriteFragment extends StatelessWidget {
   final void Function(List<ProductModel>) onProductsChanged;
   final void Function(CartModel) onCartAdded;
 
-  FavoriteFragment({ 
+  const FavoriteFragment({super.key,  
     required this.favoriteProducts,
     required this.onProductsChanged,
     required this.onCartAdded
@@ -80,21 +80,21 @@ class FavoriteFragment extends StatelessWidget {
         Text(
           'Favorit',
           textAlign: TextAlign.center,
-          style: GoogleFonts.sourceSansPro(
+          style: GoogleFonts.sourceSans3(
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
-            color: Color(0xff404040)
+            color: const Color(0xff404040)
           )
         ),
         Text(
           '${favoriteProducts.length} barang',
           textAlign: TextAlign.center,
-          style: GoogleFonts.sourceSansPro(
+          style: GoogleFonts.sourceSans3(
             fontSize: 20.0,
-            color: Color(0xff595959)
+            color: const Color(0xff595959)
           )
         ),
-        SizedBox(height: 25.0),
+        const SizedBox(height: 25.0),
       ],
     );
   }

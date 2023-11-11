@@ -8,7 +8,7 @@ import 'package:store_app/utils/price_utils.dart';
 class DetailProduct extends StatefulWidget {
   final ProductModel product;
 
-  DetailProduct({ required this.product });
+  const DetailProduct({super.key,  required this.product });
 
   @override
   _DetailProductState createState() => _DetailProductState();
@@ -114,11 +114,11 @@ class _DetailProductState extends State<DetailProduct> {
       children: [
         CupertinoButton(
           child: Container(
-            padding: EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(6.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(25.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Color(0xffdedede),
                   offset: Offset(0, 2.0),
@@ -126,7 +126,7 @@ class _DetailProductState extends State<DetailProduct> {
                 )
               ]
             ),
-            child: Icon(CupertinoIcons.back),
+            child: const Icon(CupertinoIcons.back),
           ),
           onPressed: () {
             _popNavigatorBack(context, widget.product);
@@ -134,19 +134,20 @@ class _DetailProductState extends State<DetailProduct> {
         ),
         Text(
           'Detail Produk',
-          style: GoogleFonts.sourceSansPro(
+          style: GoogleFonts.sourceSans3(
             fontSize: 20.0,
             fontWeight: FontWeight.w600,
-            color: Color(0xff404040)
+            color: const Color(0xff404040)
           ),
         ),
         CupertinoButton(
+          onPressed: _setFavoriteProduct,
           child: Container(
-            padding: EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(6.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Color(0xffdedede),
                   offset: Offset(0, 2.0),
@@ -158,8 +159,7 @@ class _DetailProductState extends State<DetailProduct> {
               widget.product.isFavorite ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
               color: Colors.redAccent
             ),
-          ),
-          onPressed: _setFavoriteProduct
+          )
         ),
       ]
     );
@@ -169,7 +169,7 @@ class _DetailProductState extends State<DetailProduct> {
     return Expanded(
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -182,25 +182,25 @@ class _DetailProductState extends State<DetailProduct> {
                   )
                 )
               ),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               Text(
                 widget.product.name,
                 style: GoogleFonts.roboto(
-                  color: Color(0xff393939),
+                  color: const Color(0xff393939),
                   fontSize: 22.0,
                   fontWeight: FontWeight.w500
                 ),
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               Text('Ukuran', style: GoogleFonts.roboto(
-                  color: Color(0xff737373),
+                  color: const Color(0xff737373),
                 )
               ),
-              SizedBox(height: 6.0),
-              Container(
+              const SizedBox(height: 6.0),
+              SizedBox(
                 height: 55.0,
                 child: ListView(
-                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                   scrollDirection: Axis.horizontal,
                   children: widget.product.sizes.map((size) {
                     return GestureDetector(
@@ -208,19 +208,19 @@ class _DetailProductState extends State<DetailProduct> {
                         _setSelectedSize(size);
                       },
                       child: Container(
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                           right: 10.0
                         ),
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 8.0,
                           bottom: 8.0,
                           left: 14.0,
                           right: 14.0
                         ),
                         decoration: BoxDecoration(
-                          color: (selectedSize == size) ? Color(0xff666AF6) : Colors.white,
+                          color: (selectedSize == size) ? const Color(0xff666AF6) : Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color(0xffdedede),
                               offset: Offset(0, 2.0),
@@ -231,7 +231,7 @@ class _DetailProductState extends State<DetailProduct> {
                         child: Text(
                           size.toString(),
                           style: GoogleFonts.roboto(
-                            color: (selectedSize == size) ? Colors.white : Color(0xff626262)
+                            color: (selectedSize == size) ? Colors.white : const Color(0xff626262)
                           )
                         )
                       )
@@ -239,22 +239,23 @@ class _DetailProductState extends State<DetailProduct> {
                   }).toList(),
                 ),
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               Text('Jumlah', style: GoogleFonts.roboto(
-                  color: Color(0xff737373),
+                  color: const Color(0xff737373),
                 )
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Row(
                 children: [
                   CupertinoButton(
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0), 
+                    onPressed: _incrementAmmount,
                     child: Container(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color(0xffdedede),
                             offset: Offset(0, 2.0),
@@ -262,31 +263,31 @@ class _DetailProductState extends State<DetailProduct> {
                           )
                         ]
                       ),
-                      child: Icon(
+                      child: const Icon(
                         CupertinoIcons.plus,
                         color: Color(0xff393939),
                         size: 20.0
                       ),
-                    ), 
-                    onPressed: _incrementAmmount
+                    )
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 14.0, right: 14.0),
+                    padding: const EdgeInsets.only(left: 14.0, right: 14.0),
                     child: Text(
                       itemAmmount.toString(), 
                       style: GoogleFonts.roboto(
-                        color: Color(0xff626262)
+                        color: const Color(0xff626262)
                       )
                     ),
                   ),
                   CupertinoButton(
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
+                    onPressed: _decrementAmmount,
                     child: Container(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color(0xffdedede),
                             offset: Offset(0, 2.0),
@@ -294,24 +295,23 @@ class _DetailProductState extends State<DetailProduct> {
                           )
                         ]
                       ),
-                      child: Icon(
+                      child: const Icon(
                         CupertinoIcons.minus,
                         color: Color(0xff393939),
                         size: 20.0
                       )
-                    ),
-                    onPressed: _decrementAmmount
+                    )
                   ),
                 ],
               ),
-              SizedBox(height: 18.0),
+              const SizedBox(height: 18.0),
               Text('Deskripsi', style: GoogleFonts.roboto(
-                  color: Color(0xff737373),
+                  color: const Color(0xff737373),
                 )
               ),
-              SizedBox(height: 14.0),
+              const SizedBox(height: 14.0),
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 14.0,
                   bottom: 14.0,
                   left: 18.0,
@@ -320,7 +320,7 @@ class _DetailProductState extends State<DetailProduct> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20.0),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Color(0xffdedede),
                       offset: Offset(0, 2.0),
@@ -330,7 +330,7 @@ class _DetailProductState extends State<DetailProduct> {
                 ),
                 child: Text(
                   widget.product.description, style: GoogleFonts.roboto(
-                    color: Color(0xff626262),
+                    color: const Color(0xff626262),
                     fontSize: 16.0
                   )
                 ),
@@ -344,13 +344,13 @@ class _DetailProductState extends State<DetailProduct> {
 
   Widget footer(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 16.0,
         bottom: 16.0,
         left: 20.0,
         right: 20.0
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xff121212),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0),
@@ -366,7 +366,7 @@ class _DetailProductState extends State<DetailProduct> {
               Text(
                 'Harga',
                 style: GoogleFonts.roboto(
-                  color: Color(0xffbebebe),
+                  color: const Color(0xffbebebe),
                   fontWeight: FontWeight.w400,
                   fontSize: 16.0
                 )
@@ -383,16 +383,16 @@ class _DetailProductState extends State<DetailProduct> {
             ],
           ),
           CupertinoButton(
-            padding: EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 22.0,
                 right: 22.0,
                 top: 18.0,
                 bottom: 18.0
               ),
               decoration: BoxDecoration(
-                color: Color(0xff666AF6),
+                color: const Color(0xff666AF6),
                 borderRadius: BorderRadius.circular(14.0)
               ),
               child: Row(
@@ -404,7 +404,7 @@ class _DetailProductState extends State<DetailProduct> {
                       fontSize: 18.0
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     CupertinoIcons.cart_fill,
                     color: Colors.white,
                     size: 20.0

@@ -13,7 +13,7 @@ class HomeFragment extends StatefulWidget {
   final void Function(List<ProductModel>) onProductsChanged;
   final void Function(CartModel) onCartAdded;
 
-  HomeFragment({
+  const HomeFragment({super.key, 
     required this.products,
     required this.cartProducts,
     required this.onProductsChanged,
@@ -100,7 +100,7 @@ class _HomeFragmentState extends State<HomeFragment> {
     return CupertinoPageScaffold(
       child: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(left: 12.0, right: 12.0),
+          padding: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -109,21 +109,21 @@ class _HomeFragmentState extends State<HomeFragment> {
                 children: [
                   Text(
                     'Daftar Produk',
-                    style: GoogleFonts.sourceSansPro(
+                    style: GoogleFonts.sourceSans3(
                       fontSize: 26.0,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xff404040)
+                      color: const Color(0xff404040)
                     )
                   ),
                   Transform.translate(
-                    offset: Offset(14, 0),
+                    offset: const Offset(14, 0),
                     child: CupertinoButton(
                       child: Container(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
-                          color: Color(0xff666AF6),
+                          color: const Color(0xff666AF6),
                           borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               offset: Offset(0, 5),
                               color: Color(0xff9598f9),
@@ -131,7 +131,7 @@ class _HomeFragmentState extends State<HomeFragment> {
                             )
                           ]
                         ),
-                        child: Icon(
+                        child: const Icon(
                           CupertinoIcons.cart, 
                           color: Colors.white
                         )
@@ -143,11 +143,11 @@ class _HomeFragmentState extends State<HomeFragment> {
                   )
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               CupertinoSearchTextField(
                 onChanged: _setSearchValue
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Expanded(
                 child: Container(
                   child: LayoutBuilder(

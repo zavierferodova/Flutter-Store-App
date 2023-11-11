@@ -9,7 +9,7 @@ import 'package:store_app/utils/price_utils.dart';
 class CartProducts extends StatefulWidget {
   final List<CartModel> cartProducts;
 
-  CartProducts({ required this.cartProducts });
+  const CartProducts({super.key,  required this.cartProducts });
 
   @override
   _CartProductsState createState() => _CartProductsState();
@@ -55,7 +55,7 @@ class _CartProductsState extends State<CartProducts> {
   int _getTotalPrice() {
     List<int> priceList = cartProducts.map((product) => product.price * product.ammounts).toList();
     int totalPrice = 0;
-    if (priceList.length > 0) {
+    if (priceList.isNotEmpty) {
       totalPrice = priceList.reduce((accumulator, price) => accumulator + price);
     }
     return totalPrice;
@@ -89,11 +89,11 @@ class _CartProductsState extends State<CartProducts> {
       children: [
         CupertinoButton(
           child: Container(
-            padding: EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(6.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(25.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Color(0xffdedede),
                   offset: Offset(0, 2.0),
@@ -101,7 +101,7 @@ class _CartProductsState extends State<CartProducts> {
                 )
               ]
             ),
-            child: Icon(CupertinoIcons.back),
+            child: const Icon(CupertinoIcons.back),
           ),
           onPressed: () {
             _popNavigatorBack(context);
@@ -112,20 +112,20 @@ class _CartProductsState extends State<CartProducts> {
             Text(
               'Keranjang',
               textAlign: TextAlign.center,
-              style: GoogleFonts.sourceSansPro(
+              style: GoogleFonts.sourceSans3(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
-                color: Color(0xff404040)
+                color: const Color(0xff404040)
               )
             ),
             Text('${cartProducts.length} barang',
               textAlign: TextAlign.center,
-              style: GoogleFonts.sourceSansPro(
+              style: GoogleFonts.sourceSans3(
                 fontSize: 20.0,
-                color: Color(0xff595959)
+                color: const Color(0xff595959)
               )
             ),
-            SizedBox(height: 25.0),
+            const SizedBox(height: 25.0),
           ]
         ),
         CupertinoButton(child: Container(), onPressed: () {})
@@ -151,31 +151,31 @@ class _CartProductsState extends State<CartProducts> {
     return Container(
       child: Column(
         children: [
-          DottedLine(
+          const DottedLine(
             dashColor: Color(0xff8e8e8e),
             dashLength: 10.0,
             lineThickness: 1.0,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Total'),
-                Text('IDR ${PriceUtils.formatPrice(_getTotalPrice())} K', style: TextStyle(
+                const Text('Total'),
+                Text('IDR ${PriceUtils.formatPrice(_getTotalPrice())} K', style: const TextStyle(
                   fontWeight: FontWeight.bold
                 ))
             ]),
           ),
           CupertinoButton(
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               child: Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Color(0xff272727),
+                  color: const Color(0xff272727),
                   borderRadius: BorderRadius.circular(14),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Color(0xffdedede),
                       offset: Offset(0, 8.0),
@@ -183,7 +183,7 @@ class _CartProductsState extends State<CartProducts> {
                     )
                   ]
                 ),
-                child: Text(
+                child: const Text(
                   'Check Out',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white)

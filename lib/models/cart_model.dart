@@ -1,6 +1,7 @@
 import 'package:store_app/models/product_model.dart';
 
 class CartModel extends ProductModel {
+  @override
   bool isFavorite;
   int selectedSize;
   int ammounts;

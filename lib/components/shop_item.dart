@@ -8,7 +8,7 @@ class ShopItem extends StatefulWidget {
   final ProductModel product;
   final void Function(ProductModel) onFavoriteChanged;
 
-  ShopItem({ required this.product, required this.onFavoriteChanged });
+  const ShopItem({super.key,  required this.product, required this.onFavoriteChanged });
   
   @override
   State<ShopItem> createState() => _ShopItemState();
@@ -25,7 +25,7 @@ class _ShopItemState extends State<ShopItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -50,7 +50,7 @@ class _ShopItemState extends State<ShopItem> {
                       _setFavorite(widget.product);
                     },
                     child: Container(
-                      padding: EdgeInsets.all(6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(1000)
@@ -66,8 +66,8 @@ class _ShopItemState extends State<ShopItem> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 6.0),
-            padding: EdgeInsets.only(left: 2, right: 2),
+            margin: const EdgeInsets.only(top: 6.0),
+            padding: const EdgeInsets.only(left: 2, right: 2),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -79,16 +79,16 @@ class _ShopItemState extends State<ShopItem> {
                     height: 1,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xff373737)
+                    color: const Color(0xff373737)
                   )
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Text(
                   'IDR ${PriceUtils.formatPrice(widget.product.price)} K',
                   style: GoogleFonts.roboto(
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xff0ecc16)
+                    color: const Color(0xff0ecc16)
                   )
                 )
               ]

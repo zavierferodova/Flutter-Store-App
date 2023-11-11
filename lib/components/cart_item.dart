@@ -8,7 +8,7 @@ class CartItem extends StatefulWidget {
   final CartModel product;
   final void Function(CartModel) onAmmountsChanged;
   final void Function(CartModel) onItemDeleted;
-  CartItem({ required this.product, required this.onAmmountsChanged, required this.onItemDeleted });
+  const CartItem({super.key,  required this.product, required this.onAmmountsChanged, required this.onItemDeleted });
 
   @override
   _CartItemState createState() => _CartItemState(itemAmmount: product.ammounts);
@@ -61,7 +61,7 @@ class _CartItemState extends State<CartItem> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.0),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0xffdedede),
             offset: Offset(0, 8.0),
@@ -69,9 +69,9 @@ class _CartItemState extends State<CartItem> {
           )
         ]
       ),
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       child: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -89,7 +89,7 @@ class _CartItemState extends State<CartItem> {
             Expanded(
               flex: 2,
               child: Container(
-                margin: EdgeInsets.only(left: 10.0),
+                margin: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -100,10 +100,10 @@ class _CartItemState extends State<CartItem> {
                       style: GoogleFonts.roboto(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff373737)
+                        color: const Color(0xff373737)
                       )
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4.0,
                     ),
                     Text(
@@ -111,63 +111,63 @@ class _CartItemState extends State<CartItem> {
                       style: GoogleFonts.roboto(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff0ecc16)
+                        color: const Color(0xff0ecc16)
                       )
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       child: Transform.translate(
-                        offset: Offset(-10, 0),
+                        offset: const Offset(-10, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
                                 CupertinoButton(
-                                  padding: EdgeInsets.all(0),
+                                  padding: const EdgeInsets.all(0),
+                                  onPressed: _incrementAmmount,
                                   child: Container(
-                                    padding: EdgeInsets.all(4.0),
+                                    padding: const EdgeInsets.all(4.0),
                                     decoration: BoxDecoration(
-                                      border: Border.all(width: 1.0, color: Color(0xffb5b5b5)),
+                                      border: Border.all(width: 1.0, color: const Color(0xffb5b5b5)),
                                       borderRadius: BorderRadius.circular(20)
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       CupertinoIcons.plus,
                                       color: Colors.black,
                                       size: 14.0,
                                     )
                                   ),
-                                  onPressed: _incrementAmmount,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 5, right: 5),
+                                  padding: const EdgeInsets.only(left: 5, right: 5),
                                   child: Text(
                                     itemAmmount.toString(), 
                                     style: GoogleFonts.roboto()
                                   )
                                 ),
                                 CupertinoButton(
-                                  padding: EdgeInsets.all(0),
+                                  padding: const EdgeInsets.all(0),
+                                  onPressed: _decrementAmmount,
                                   child: Container(
-                                    padding: EdgeInsets.all(4.0),
+                                    padding: const EdgeInsets.all(4.0),
                                     decoration: BoxDecoration(
-                                      border: Border.all(width: 1.0, color: Color(0xffb5b5b5)),
+                                      border: Border.all(width: 1.0, color: const Color(0xffb5b5b5)),
                                       borderRadius: BorderRadius.circular(20)
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       CupertinoIcons.minus,
                                       color: Colors.black,
                                       size: 14.0,
                                     )
                                   ),
-                                  onPressed: _decrementAmmount,
                                 ),
                               ]
                             ),
                             CupertinoButton(
-                              child: Icon(
+                              child: const Icon(
                                 CupertinoIcons.trash, 
                                 color: Colors.redAccent,
                                 size: 20.0

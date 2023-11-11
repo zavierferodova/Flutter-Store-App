@@ -8,6 +8,8 @@ import 'package:store_app/views/home/profile_fragment.dart';
 import 'package:store_app/data/products_dataset.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -33,17 +35,17 @@ class _HomeState extends State<Home> {
           },
           onCartAdded: (CartModel addedCart) {
             setState(() {
-              Function isProductOnCart = () {
+              isProductOnCart() {
                 bool isOnCart = false;
 
-                _cartProducts.forEach((product) {
+                for (var product in _cartProducts) {
                   if (product.id == addedCart.id)  {
                     isOnCart = true;
                   }
-                });
+                }
 
                 return isOnCart;
-              };
+              }
 
               if (isProductOnCart()) {
                 _cartProducts = _cartProducts.map((product) {
@@ -74,11 +76,11 @@ class _HomeState extends State<Home> {
             setState(() {
               bool isOnCart = false;
 
-              _cartProducts.forEach((product) {
+              for (var product in _cartProducts) {
                 if (product.id == addedCart.id)  {
                   isOnCart = true;
                 }
-              });
+              }
 
               if (isOnCart) {
                 _cartProducts = _cartProducts.map((product) {
@@ -96,7 +98,7 @@ class _HomeState extends State<Home> {
         );
         break;
       case 2:
-        fragment = ProfileFragment();
+        fragment = const ProfileFragment();
         break;
     }
 
@@ -110,9 +112,9 @@ class _HomeState extends State<Home> {
         tabBar: CupertinoTabBar(
           activeColor: Colors.white,
           inactiveColor: Colors.white,
-          backgroundColor: Color(0xff666AF6),
+          backgroundColor: const Color(0xff666AF6),
           iconSize: 24.0,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               activeIcon: Icon(CupertinoIcons.house_fill),
               icon: Icon(CupertinoIcons.home),

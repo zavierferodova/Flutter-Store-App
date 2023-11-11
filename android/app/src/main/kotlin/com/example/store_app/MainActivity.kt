@@ -1,4 +1,4 @@
-package com.zavierdev.storeapp.store_app
+package com.example.store_app
 
 import io.flutter.embedding.android.FlutterActivity
 

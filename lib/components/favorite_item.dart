@@ -6,18 +6,18 @@ import 'package:store_app/utils/price_utils.dart';
 class FavoriteItem extends StatelessWidget {
   final ProductModel product;
 
-  FavoriteItem({ required this.product });
+  const FavoriteItem({super.key,  required this.product });
 
   @override
   Widget build(BuildContext context) {
     return Container(      
       child: Container(
-        margin: EdgeInsets.only(left: 18.0, right: 18.0, top: 10.0, bottom: 10.0),
-        padding: EdgeInsets.all(12.0),
+        margin: const EdgeInsets.only(left: 18.0, right: 18.0, top: 10.0, bottom: 10.0),
+        padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20.0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Color(0xffdedede),
               offset: Offset(0, 8.0),
@@ -40,7 +40,7 @@ class FavoriteItem extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Padding(
-                padding: EdgeInsets.only(left: 12.0),
+                padding: const EdgeInsets.only(left: 12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -51,10 +51,10 @@ class FavoriteItem extends StatelessWidget {
                       style: GoogleFonts.roboto(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff373737)
+                        color: const Color(0xff373737)
                       )
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4.0,
                     ),
                     Text(
@@ -62,10 +62,10 @@ class FavoriteItem extends StatelessWidget {
                       style: GoogleFonts.roboto(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff0ecc16)
+                        color: const Color(0xff0ecc16)
                       )
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     )
                   ]
